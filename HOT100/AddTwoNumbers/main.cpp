@@ -19,24 +19,59 @@
 // 0 <= Node.val <= 9
 // 题目数据保证列表表示的数字不含前导零
 
+
 #include<iostream>
-#include<List>
 using namespace std;
 
 class ListNode {
 public:
-    int val;        // 存储节点的值
-    ListNode *next; // 指向下一个节点的指针
+    int val;
+    ListNode *next;
 
-    // 构造函数
     ListNode(int x) : val(x), next(nullptr) {}
 };
 
 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-    
+    int temp = 0;
+    ListNode* result = new ListNode(0); 
+    ListNode* head = result;
+    while(l1 != nullptr || l2 != nullptr || temp) { 
+        int sum = temp;
+        if (l1 != nullptr) {
+            sum += l1->val;
+            l1 = l1->next;
+        }
+        if (l2 != nullptr) {
+            sum += l2->val;
+            l2 = l2->next;
+        }
+        temp = sum / 10;
+        result->next = new ListNode(sum % 10);
+        result = result->next;
+    }
+    ListNode* finalResult = head->next; 
+    delete head; 
+    head = nullptr;
+    return finalResult;
 }
 
-int main(){
+int main() {
+    ListNode *l1 = new ListNode(2);
+    l1->next = new ListNode(4);
+    l1->next->next = new ListNode(3);
 
+    ListNode *l2 = new ListNode(5);
+    l2->next = new ListNode(6);
+    l2->next->next = new ListNode(4);
+
+    ListNode* result = addTwoNumbers(l1, l2);
+
+    while (result != nullptr) {
+        cout << result->val << " ";
+        ListNode* temp = result;
+        result = result->next;
+        delete temp;
+        temp=nullptr;
+    }
     return 0;
 }
