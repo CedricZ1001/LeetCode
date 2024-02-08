@@ -24,34 +24,44 @@
 
 using namespace std;
 
-double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-    int numLength = nums1.size() + nums2.size();
-    vector<double> resultVec;
-    int index1 = 0;
-    int index2 = 0;
-    double result = 0;
-    for(int i = 0; i <= numLength/2; ++i){
-        if(index1 < nums1.size() && (index2 >= nums2.size() || nums1[index1] < nums2[index2])){
-            resultVec.push_back(nums1[index1]);
-            index1++;
-        }
-        else if(index2<nums2.size()){
-            resultVec.push_back(nums2[index2]);
-            index2++;
-        }
-    }
-    if (numLength % 2 == 0){
-        result = (resultVec[index1+index2 - 2] + resultVec[index1+index2 - 1]) / 2;
-    }
-    else{
-        result = resultVec[index1 + index2 - 1];
-    }
+// double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+//     int numLength = nums1.size() + nums2.size();
+//     vector<double> resultVec;
+//     int index1 = 0;
+//     int index2 = 0;
+//     double result = 0;
+//     for(int i = 0; i <= numLength/2; ++i){
+//         if(index1 < nums1.size() && (index2 >= nums2.size() || nums1[index1] < nums2[index2])){
+//             resultVec.push_back(nums1[index1]);
+//             index1++;
+//         }
+//         else if(index2<nums2.size()){
+//             resultVec.push_back(nums2[index2]);
+//             index2++;
+//         }
+//     }
+//     if (numLength % 2 == 0){
+//         result = (resultVec[index1 + index2 - 2] + resultVec[index1 + index2 - 1]) / 2;
+//     }
+//     else{
+//         result = resultVec[index1 + index2 - 1];
+//     }
 
-    return result;
+//     return result;
+// }
+
+int getKthElement(const vector<int>& nums1, const vector<int>& nums2, int k) {
+    int m = nums1.size();
+    int n = nums2.size();
+    
+}
+
+
+double findMedianSortedArrays(vector<int> nums1, vector<int> nums2){
+
 }
 
 int main(){
-
     vector<int> nums1{0, 0};
     vector<int> nums2{0 ,0};
     cout<<findMedianSortedArrays(nums1, nums2)<<endl;
