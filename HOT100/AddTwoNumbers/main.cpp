@@ -73,5 +73,6 @@ int main() {
         delete temp;
         temp=nullptr;
     }
+    system("pause");
     return 0;
 }
