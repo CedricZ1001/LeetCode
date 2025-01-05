@@ -22,8 +22,12 @@
 // Remove Duplicates from Sorted Array ¢ò(80)
 // Remove All Adjacent Duplicates In String(1047)
 
+#include "First.cpp"
+
 #pragma once
 int main() 
 {
+	//cout << First::lengthOfLongestSubstring("abdcvd") << endl;
+	system("pause");
 	return 0;
 }
